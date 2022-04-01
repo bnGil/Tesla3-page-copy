@@ -1,0 +1,223 @@
+@font-face {
+    font-family: GothamSSM;
+    src: url('/fonts/GothamSSM.otf') format('OpenType');
+}
+
+:root {
+    --prim-color-white: #ffffff;
+    --article-header-color-darkgrey: #171a20;
+    --article-p-color-grey: #393c41;
+    --article-p-fontsize: 14px;
+    --article-bigheader-fontsize :28px;
+    --article-smallheader-fontsize :17px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Colors */
+body {
+    font-family: GothamSSM;
+}
+
+/* ------------------Header--------------------- */
+
+/* hero */
+#hero {
+    background: url("https://tesla-cdn.thron.com/delivery/public/image/tesla/d0cecbbf-1a20-4b48-b136-fb096af19515/bvlatuR/std/2880x1800/model-3-main-hero-a-desktop") no-repeat center center/cover; 
+    color: var(--prim-color-white);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* main navbar of header */
+.main-navbar {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    height: 56px;
+    align-items: center;
+}
+
+/* navbars of header */
+.nav {
+    list-style: none;
+    display: flex;
+    font-size: 12px;
+}
+
+.nav--right {
+    padding-right: 32px;
+}
+
+.nav .nav-item {
+    padding: 4px 8px;
+}
+
+.nav .nav-item a {
+    padding: 4px 8px;
+    text-decoration: none;
+    color: var(--prim-color-white);
+    font-family: GothamSSM;
+}
+
+.logo {
+    padding-left: 32px;
+}
+
+.logo .logo__button img {
+    width: 100px;
+    padding-left: 20px;
+    margin-right: 70px;
+}
+
+.hero__h1 {
+    font-size: 34px;
+    text-align: center;
+    font-weight: 500;
+    flex-grow: 8;
+    margin-top: 60px;
+}
+
+
+/* hero footer */
+.hero-footer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.hero-footer__nav {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-footer-navitem{
+    margin: 0 50px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.hero-footer-navitem h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.hero-footer-navitem--order {
+    display: flex;
+    align-items: center;
+}
+
+.hero-footer-navitem--order .order-btn {
+    padding: 7px 50px;
+    font-size: 10px;
+    text-decoration: none;
+    color: var(--prim-color-white);
+    border: 3px solid var(--prim-color-white);
+    border-radius: 30px;
+    align-self: flex-start;
+}
+
+.bottom-arrow-btn {
+    margin: 20px 0;
+}
+
+.bottom-btn__link {
+    text-decoration: none;
+    color: var(--prim-color-white);
+}
+
+
+/* ----------Safety section ---------- */
+
+#safety {
+    height: 100vh;
+    background: var(--prim-color-white);
+    display: flex;
+}
+
+
+.safety__car-image img {
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+.safety-article {
+    padding: 32px 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.safety-article__header {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.article-big-header {
+    font-size: var(--article-bigheader-fontsize);
+    color: var(--article-header-color-darkgrey);
+}
+
+.article-small-header {
+    font-size: var(--article-smallheader-fontsize);
+    color: var(--article-header-color-darkgrey);
+}
+
+.paragraph {
+    color: var(--article-p-color-grey);
+    font-size: var(--article-p-fontsize);
+    line-height: 20px;
+}
+
+.paragraph p span {
+    text-decoration: underline;
+}
+
+.bottom-btns {
+    display: flex;
+    /* justify-self: center; */
+    margin-top: auto;
+}
+
+.learn-more-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background: var(--prim-color-white);
+}
+
+.learn-more-btn p {
+    margin-left: 10px;
+    font-size: 10px;
+}
+
+.plus-circle {
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--article-header-color-darkgrey);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.order-now-btn {
+    height: 30px;
+    padding: 2px 40px;
+    border: 3px solid var(--article-header-color-darkgrey);
+    border-radius: 50px;
+    font-size: 10px;
+    background: var(--prim-color-white);
+    margin-left: 30px;
+}
