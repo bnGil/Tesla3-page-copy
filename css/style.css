@@ -55,6 +55,9 @@
     --article-p-fontsize: 14px;
     --article-p-fontweight: 400;
     --article-p-lineheight: 20px;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 * {
@@ -63,6 +66,9 @@
     margin: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 /* Colors */
 html, body {
@@ -70,24 +76,74 @@ html, body {
     
 }
 
-/* ------------------Header--------------------- */
+body::-webkit-scrollbar {
+    display: none;
+  }
+
+/* ----------------------- Side navbar ---------------------------- */
+
+.side-navbar-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+}
+
+.side-navbar__item{
+    margin: 5px 0;
+}
+
+.link-item {
+    font-weight: lighter;
+    padding-left: 13px;
+    margin: 20px 0;
+    text-decoration: none;
+    color: rgb(226,227,227);
+}
+
+[tooltip] {
+    position: relative;
+  }
+  
+  [tooltip]:before {
+    content: attr(tooltip);
+    opacity: 0;
+    color: var(--prim-color-white);
+    text-align: center;
+    font-size: 10px;
+    white-space: nowrap; 
+    position: absolute;
+    z-index: 1;
+    left: 30px;
+    top: 25%;
+    transition: all 0.2s;
+  }
+  
+  [tooltip]:hover:before {
+    opacity: 1;
+  }
+
+/* ---------------------------------------Header---------------------------------------- */
 
 /* hero */
 #hero {
     background: url("https://tesla-cdn.thron.com/delivery/public/image/tesla/d0cecbbf-1a20-4b48-b136-fb096af19515/bvlatuR/std/2880x1800/model-3-main-hero-a-desktop") no-repeat center center/cover; 
     color: var(--prim-color-white);
     height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 /* main navbar of header */
-.main-navbar {
+#main-navbar {
     flex-shrink: 0;
     display: flex;
     justify-content: space-between;
     height: 56px;
     align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 /* navbars of header */
@@ -99,18 +155,50 @@ html, body {
     line-height: 20px;
 }
 
-.nav--right {
-    padding-right: 32px;
+.menu-mobile {
+    text-decoration: none;
+    font-family: "Gotham SSm", sans-serif;
+    font-size: 14px;
+    color: var(--prim-color-white);
+    background-color: hsla(0,0%,100%,.2);
+    border-radius: 10px;
+    padding: 6px 12px;
+    margin-right: 20px;
+    display: none;
 }
 
-.nav .nav-item {
-    padding: 4px 8px;
+.nav--right {
+    padding-right: 32px;
 }
 
 .nav .nav-item a {
     padding: 4px 8px;
     text-decoration: none;
     color: var(--prim-color-white);
+}
+
+.nav .nav-item {
+    position: relative;
+    z-index: 1;
+    padding: 4px 8px;
+}
+
+.nav .nav-item::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #b6b6b6;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.nav .nav-item:hover::before {
+    opacity: 0.5;
 }
 
 .logo {
@@ -123,62 +211,98 @@ html, body {
     margin-right: 70px;
 }
 
+.hero-showcase {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
 .hero__h1 {
     font-size: 40px;
     text-align: center;
     font-weight: 500;
-    flex-grow: 8;
-    margin-top: 60px;
+    margin-top: 100px;
     line-height: 48px;
 }
 
 
 /* hero footer */
 .hero-footer {
-    flex-grow: 1;
+    margin-top: auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.hero-footer__nav {
-    display: flex;
+    align-items: flex-end;
     justify-content: center;
 }
 
-.hero-footer-navitem{
+.hero-footer__badges {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.hero-footer-badge{
     margin: 0 50px;
     text-align: center;
-    /* font-weight: lighter; */
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
 }
 
-.hero-footer-navitem h3 {
+.hero-footer-badge h3 {
     font-size: 28px;
     font-weight: 500;
     line-height: 28px;
     margin-bottom: 10px;
 }
 
-.hero-footer-navitem--order {
-    display: flex;
-    align-items: center;
+.speedometer {
+    position: relative;
 }
 
-.hero-footer-navitem--order .order-btn {
+.component1 {
+    position: absolute;
+    opacity: 0.5;
+    top: 8px;
+    left: 6px;
+}
+.component2 {
+    position: absolute;
+    top: 8px;
+    left: 18px;
+}
+
+.hero-footer-badge h3 span {
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.hero-footer--order {
+    display: flex;
+    align-self: flex-start;
+}
+
+.hero-footer--order .order-btn {
     padding: 7px 50px;
     font-size: 10px;
+    font-weight: bold;
     text-decoration: none;
     color: var(--prim-color-white);
     border: 3px solid var(--prim-color-white);
     border-radius: 30px;
     align-self: flex-start;
+    transition: all 0.5s;
+}
+
+.hero-footer--order .order-btn:hover {
+    background-color: var(--prim-color-white);
+    color: var(--prim-color-darkgrey);
+    opacity: 1;
 }
 
 .bottom-arrow-btn {
+    display: flex;
+    justify-content: center;
     margin: 20px 0;
 }
 
@@ -187,8 +311,29 @@ html, body {
     color: var(--prim-color-white);
 }
 
+.bottom-btn__link i {
+    animation-name: arrow;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
 
-/* ----------Safety section ---------- */
+@keyframes arrow {
+    25% {
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    75% {
+        transform: translateY(5px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+}
+
+
+/* ---------------------------Safety section ---------------------------------- */
 
 #safety {
     height: 100vh;
@@ -246,7 +391,6 @@ html, body {
 
 .bottom-btns {
     display: flex;
-    /* justify-self: center; */
     margin-top: auto;
 }
 
@@ -271,7 +415,13 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.5s;
+}
 
+.plus-circle:hover {
+    opacity:1;
+    background-color: var(--prim-color-darkgrey);
+    color: var(--prim-color-white);
 }
 
 .order-now-btn {
@@ -282,6 +432,13 @@ html, body {
     font-size: 10px;
     background: var(--prim-color-white);
     margin-left: 30px;
+    transition: all 0.5s;
+}
+
+.order-now-btn:hover {
+    opacity:1;
+    background-color: var(--prim-color-darkgrey);
+    color: var(--prim-color-white);
 }
 
 
@@ -314,6 +471,18 @@ html, body {
     margin-bottom: 10px;
 }
 
+.performance-component1 {
+    position: absolute;
+    opacity: 0.5;
+    top: 6px;
+    left: 76px;
+}
+.performance-component2 {
+    position: absolute;
+    top: 8px;
+    left: 88px;
+}
+
 .badge p {
     color: var(--prim-color-white);
     font-size: 12px;
@@ -341,16 +510,109 @@ html, body {
 
 }
 
+.paragraph-mobile {
+    display: none;
+}
+
+.mobile-badge-text {
+    display: block;
+}
+
 .performance-buttons {
     display: flex;
     margin-top: 30px;
 }
 
-/* .performance-article h2 {
-    max-width: 500px;
+
+/* ------------ Mobile - media queries ------------- */
+@media(max-width: 1200px) {
+    .nav {
+        display:none;
+    }
+
+    .menu-mobile {
+        display: inline;
+    }
+
 }
 
-.performance-article p {
-    max-width: 600px;
-} */
+@media(max-width: 1200px) {
+    .nav {
+        display:none;
+    }
 
+    .menu-mobile {
+        display: inline;
+    }
+
+}
+
+@media(max-width: 768px) {
+    /* -----Hero------ */
+    .hero-footer {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        margin-bottom: 50px;
+    }
+
+    .hero-footer--order {
+        align-self: center;
+    }
+
+    .bottom-arrow-btn {
+        display: none;
+    }
+
+    .order-btn {
+        width: 300px;
+    }
+
+    .hero-footer-badge {
+        margin: 0 10px;
+    }
+
+    /* ---------Safety----------- */
+    #safety {
+        flex-direction: column;
+    }
+
+    .bottom-btns {
+        margin: 20px 0;
+    }
+
+    .safety__car-image {
+        width: 100%;
+        height:40%;
+        background: url('https://tesla-cdn.thron.com/delivery/public/image/tesla/ea753653-02a2-4206-aac5-82a33a0a245d/bvlatuR/std/2880x1800/model-3-hero-a-desktop') no-repeat center center/cover; 
+    }
+
+    .safety__car-image img {
+        display: none;
+    }
+
+    /* -----------performance--------- */
+
+    .performance-article {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .performance-article .paragraph {
+        display: none;
+    }
+
+    .paragraph-mobile {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .non-mobile-badge-text {
+        display: none;
+    }
+
+    .mobile-badge-text {
+        display: block;
+    }
+}

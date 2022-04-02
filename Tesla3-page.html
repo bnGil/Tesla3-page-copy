@@ -9,13 +9,23 @@
       src="https://kit.fontawesome.com/c09d2bc74f.js"
       crossorigin="anonymous"
     ></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" media="" href="media.css">
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- Side navbar -->
+    <div class="side-navbar-container">
+        <ul class="side-navbar">
+            <li class="side-navbar__item" tooltip="MODEL 3"><a href="#hero" class="link-item">|</a></li>
+            <li class="side-navbar__item" tooltip="SAFETY"><a href="#safety" class="link-item">|</a></li>
+            <li class="side-navbar__item" tooltip="PREFORMANCE"><a href="#performance" class="link-item">|</a></li>
+        </ul>
+    </div>
     <!-- Header (hero) -->
     <header id="hero">
-      <nav class="main-navbar">
+      <nav id="main-navbar" class="top">
         <div class="logo">
           <a href="#" class="logo__button"
             ><img src="img/tesla_logo.svg" alt="logo"
@@ -34,42 +44,44 @@
           <li class="nav-item"><a href="#">Account</a></li>
           <li class="nav-item"><a href="#">Menu</a></li>
         </ul>
+        <a href="#" class="menu-mobile">Menu</a>
       </nav>
-      <h1 class="hero__h1">Model 3</h1>
-      <div class="hero-footer">
-        <div class="nav hero-footer__nav">
-          <div class="hero-footer-navitem">
-            <h3>3.1 s</h3>
-            <p>0-60 mph*</p>
-          </div>
-          <div class="hero-footer-navitem">
-            <h3>358 mi</h3>
-            <p>Range (EPA est.)</p>
-          </div>
-          <div class="hero-footer-navitem">
-            <h3>AWD</h3>
-            <p>Dual Motor</p>
-          </div>
-          <div class="hero-footer-navitem hero-footer-navitem--order">
-            <a href="#" class="order-btn">ORDER NOW</a>
-          </div>
-        </div>
-        <div class="bottom-arrow-btn">
-          <a href="#" class="bottom-btn__link"
-            ><i class="fa-solid fa-angle-down"></i
-          ></a>
-        </div>
+      <div class="hero-showcase">
+          <h1 class="hero__h1">Model 3</h1>
+          <div class="hero-footer">
+            <div class="hero-footer__badges">
+              <div class="hero-footer-badge">
+                <h3 class="speedometer"><img src="/svg/svgexport-8.svg" alt="pic"><img class="component1" src="/svg/svgexport-9.svg" alt="pic"><img class="component2" src="/svg/svgexport-10.svg" alt="pic"> 3.1 <span>s</span></h3>
+                <p>0-60 mph*</p>
+              </div>
+              <div class="hero-footer-badge">
+                <h3>358 <span>mi</span></h3>
+                <p>Range (EPA est.)</p>
+              </div>
+              <div class="hero-footer-badge">
+                <h3>AWD</h3>
+                <p>Dual Motor</p>
+              </div>
+            </div>
+              <div class="hero-footer-badge hero-footer--order">
+                <a href="#" class="order-btn">ORDER NOW</a>
+              </div>
+            </div>
+            <div class="bottom-arrow-btn">
+              <a href="#safety" class="bottom-btn__link"
+                ><i class="fa-solid fa-angle-down"></i
+              ></a>
+            </div>
       </div>
     </header>
-
     <!-- Safety Section -->
     <section id="safety">
       <div class="safety__car-image">
         <img
-          src="https://tesla-cdn.thron.com/delivery/public/image/tesla/ea753653-02a2-4206-aac5-82a33a0a245d/bvlatuR/std/2880x1800/model-3-hero-a-desktop"
-          alt="car"
+             src="https://tesla-cdn.thron.com/delivery/public/image/tesla/ea753653-02a2-4206-aac5-82a33a0a245d/bvlatuR/std/2880x1800/model-3-hero-a-desktop"
+             alt="car"
         />
-      </div>
+      </div> 
       <aside class="safety-article">
         <header class="safety-article__header">
           <h3 class="article-small-header">Safety</h3>
@@ -99,31 +111,33 @@
         </div>
       </aside>
     </section>
-
     <!-- Performance section -->
     <section id="performance">
       <div class="performace__badges">
         <div class="badge">
-          <h3>3.1 s</h3>
-          <p>
+            <h3 class="speedometer"><img src="/svg/svgexport-8.svg" alt="pic"><img class="performance-component1" src="/svg/svgexport-9.svg" alt="pic"><img class="performance-component2" src="/svg/svgexport-10.svg" alt="pic"> 3.1 <span>s</span></h3>
+          <p class="non-mobile-badge-text">
             Quickest acceleration-from zero to 60 <br />
             mph* in as little as 3.1 seconds
           </p>
+          <p class="mobile-badge-text">0-60 mph*</p>
         </div>
         <div class="badge">
           <h3>162 mph</h3>
-          <p>
+          <p class="non-mobile-badge-text">
             Improved handling and aerodynamics<br />
             allow for a top speed of 162 mph
           </p>
+          <p class="mobile-badge-text">Top Speed</p>
         </div>
         <div class="badge">
           <h3>AWD</h3>
-          <p>
+          <p class="non-mobile-badge-text">
             Dual Motor All-Wheel Drive instantly<br />
             controls traction and torque, in all weather<br />
             conditions.
           </p>
+          <p class="mobile-badge-text">Dual Motor</p>
         </div>
       </div>
       <section class="performance-article">
@@ -133,6 +147,9 @@
                   <h3 class="article-small-header">Performance</h3>
                   <h2 class="article-big-header">Quickest Acceleration</h2>
               </div>
+              <p class="paragraph-mobile">
+                Tesla All-Wheel Drive has two independent motors for improved redundancy, each with only one moving part for minimal maintenance and maximum durability. Unlike traditional all-wheel drive systems, they digitally control torque to the front and rear wheels for far better handling and traction control.
+              </p>
               <div class="performance-buttons">
                 <button class="learn-more-btn">
                     <span class="plus-circle">+</span>
