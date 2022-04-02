@@ -1,15 +1,60 @@
 @font-face {
-    font-family: GothamSSM;
-    src: url('/fonts/GothamSSM.otf') format('OpenType');
+    font-display: swap;
+    font-family: Gotham SSm;
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://cdn-design.tesla.com/tds-fonts/3.x/woff2/GothamSSm-Medium_Web.woff2)
+      format("woff2");
+  }
+@font-face {
+    font-display: swap;
+    font-family: Gotham SSm;
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://cdn-design.tesla.com/tds-fonts/3.x/woff2/GothamSSm-Book_Web.woff2)
+      format("woff2");
+}
+@font-face {
+    font-display: swap;
+    font-family: Gotham SSm;
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://cdn-design.tesla.com/tds-fonts/3.x/woff2/GothamSSm-Bold_Web.woff2)
+      format("woff2");
+}
+@font-face {
+    font-display: swap;
+    font-family: Gotham SSm;
+    font-style: normal;
+    font-weight: 300;
+    src: url(https://cdn-design.tesla.com/tds-fonts/3.x/woff2/GothamSSm-Light_Web.woff2)
+      format("woff2");
+}
+@font-face {
+    font-display: swap;
+    font-family: Gotham SSm;
+    font-style: normal;
+    font-weight: 200;
+    src: url(https://cdn-design.tesla.com/tds-fonts/3.x/woff2/GothamSSm-XLight_Web.woff2)
+      format("woff2");
 }
 
 :root {
     --prim-color-white: #ffffff;
-    --article-header-color-darkgrey: #171a20;
-    --article-p-color-grey: #393c41;
-    --article-p-fontsize: 14px;
+    --prim-color-darkgrey:#171a20;
+    --prim-color-lightgrey:#393c41;
+    
     --article-bigheader-fontsize :28px;
+    --article-bigheader-fontweight: 500;
+    --article-bigheader-lineheight: 36px;
+
     --article-smallheader-fontsize :17px;
+    --article-smallheader-fontweight :300;
+    --article-smallheader-lineheight :24px;
+
+    --article-p-fontsize: 14px;
+    --article-p-fontweight: 400;
+    --article-p-lineheight: 20px;
 }
 
 * {
@@ -20,8 +65,9 @@
 
 
 /* Colors */
-body {
-    font-family: GothamSSM;
+html, body {
+    font-family: "Gotham SSm", sans-serif;
+    
 }
 
 /* ------------------Header--------------------- */
@@ -48,7 +94,9 @@ body {
 .nav {
     list-style: none;
     display: flex;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
 }
 
 .nav--right {
@@ -63,7 +111,6 @@ body {
     padding: 4px 8px;
     text-decoration: none;
     color: var(--prim-color-white);
-    font-family: GothamSSM;
 }
 
 .logo {
@@ -77,11 +124,12 @@ body {
 }
 
 .hero__h1 {
-    font-size: 34px;
+    font-size: 40px;
     text-align: center;
     font-weight: 500;
     flex-grow: 8;
     margin-top: 60px;
+    line-height: 48px;
 }
 
 
@@ -102,11 +150,16 @@ body {
 .hero-footer-navitem{
     margin: 0 50px;
     text-align: center;
-    font-weight: lighter;
+    /* font-weight: lighter; */
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
 }
 
 .hero-footer-navitem h3 {
-    font-size: 26px;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 28px;
     margin-bottom: 10px;
 }
 
@@ -143,9 +196,13 @@ body {
     display: flex;
 }
 
+.safety__car-image{
+    max-width: 100%;
+    display: flex;
+}
 
 .safety__car-image img {
-    width: 100%;
+    max-width: 70%;
     height: auto;
     margin: auto;
 }
@@ -164,18 +221,23 @@ body {
 
 .article-big-header {
     font-size: var(--article-bigheader-fontsize);
-    color: var(--article-header-color-darkgrey);
+    color: var(--prim-color-darkgrey);
+    line-height: var(--article-bigheader-lineheight);
+    font-weight: var(--article-bigheader-fontweight);
 }
 
 .article-small-header {
     font-size: var(--article-smallheader-fontsize);
-    color: var(--article-header-color-darkgrey);
+    color: var(--prim-color-darkgrey);
+    line-height: var(--article-smallheader-lineheight);
+    font-weight: var(--article-smallheader-fontweight);
 }
 
 .paragraph {
-    color: var(--article-p-color-grey);
+    color: var(--prim-color-lightgrey);
     font-size: var(--article-p-fontsize);
-    line-height: 20px;
+    line-height: var(--article-p-lineheight);
+    font-weight: var(--article-p-fontweight);
 }
 
 .paragraph p span {
@@ -204,7 +266,7 @@ body {
 .plus-circle {
     width: 30px;
     height: 30px;
-    border: 3px solid var(--article-header-color-darkgrey);
+    border: 3px solid var(--prim-color-darkgrey);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -215,9 +277,80 @@ body {
 .order-now-btn {
     height: 30px;
     padding: 2px 40px;
-    border: 3px solid var(--article-header-color-darkgrey);
+    border: 3px solid var(--prim-color-darkgrey);
     border-radius: 50px;
     font-size: 10px;
     background: var(--prim-color-white);
     margin-left: 30px;
 }
+
+
+/* -------- Performance section --------------------- */
+#performance {
+    height: 100vh;
+    background: url('https://tesla-cdn.thron.com/delivery/public/image/tesla/3489a82e-b19c-457a-86a4-7ea9ac91aa1c/bvlatuR/std/1920x1080/lhd-performance-hero-desktop') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+}
+
+.performace__badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.badge {
+    margin: 0 20px;
+}
+
+.badge h3 {
+    color: var(--prim-color-white);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.badge p {
+    color: var(--prim-color-white);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-bottom: 20px;
+}
+
+.performance-article {
+    width: 100%;
+    background: var(--prim-color-white);
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.headers-and-buttons {
+    max-width: 500px;
+
+}
+
+.performance-article .paragraph {
+    max-width: 700px;
+    margin-left: 50px;
+
+}
+
+.performance-buttons {
+    display: flex;
+    margin-top: 30px;
+}
+
+/* .performance-article h2 {
+    max-width: 500px;
+}
+
+.performance-article p {
+    max-width: 600px;
+} */
+
